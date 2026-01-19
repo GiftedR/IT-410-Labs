@@ -1,5 +1,4 @@
-using System.ComponentModel.Design;
-using Microsoft.Data.SqlClient; // For some reason, System.Data.SqlClient was giving issues, so I replaced it with the updated one.
+using System.Data.SqlClient;
 
 public class CustomerRepository
 {
