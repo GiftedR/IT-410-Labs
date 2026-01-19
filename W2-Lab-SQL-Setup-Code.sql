@@ -14,6 +14,30 @@
     Run in SSMS.
 */
 
+-- Uncomment to drop the database before rebuilding it
+
+--USE master;
+
+--GO
+
+--IF EXISTS (SELECT database_id 
+--FROM sys.databases 
+--WHERE name = 'IT410Week2Demo')
+--BEGIN
+
+--alter database IT410Week2Demo set single_user with rollback immediate;
+
+--DROP DATABASE IT410Week2Demo;
+
+
+--END
+
+--GO
+
+--CREATE DATABASE IT410Week2Demo;
+
+--GO
+
 USE IT410Week2Demo;
 GO
 
