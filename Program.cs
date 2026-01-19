@@ -14,8 +14,8 @@
 			Console.WriteLine(c);
 		}
 
-        Console.WriteLine("Getting First Customer...");
-        Customer? firstCustomer = customersRepo.GetCustomerById(1);
+		Console.WriteLine("Getting First Customer...");
+		Customer? firstCustomer = customersRepo.GetCustomerById(1);
 
 
 		Console.WriteLine(firstCustomer == null ? "Customer Not Found..." : firstCustomer);
