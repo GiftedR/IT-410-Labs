@@ -69,4 +69,47 @@ public class CustomerRepository
 			return returnCustomer;
 		}
 	}
+
+
+	public bool UpdateCustomer(Customer customer)
+	{
+		using (SqlConnection conn = new SqlConnection(_connectionString))
+		{
+			conn.Open();
+
+			using (SqlCommand cmd = new SqlCommand(
+				@"UPDATE dbo.Customers
+				SET FirstName = @FirstName,
+					LastName = @LastName,
+					Email = @Email,
+					IsActive = @IsActive
+				WHERE CustomerId = @CustomerId;", conn))
+			{
+				cmd.Parameters.AddWithValue("@FirstName", customer.FirstName);
+				cmd.Parameters.AddWithValue("@LastName", customer.LastName);
+				cmd.Parameters.AddWithValue("@Email", customer.Email);
+				cmd.Parameters.AddWithValue("@IsActive", customer.IsActive);
+
+				int rows = cmd.ExecuteNonQuery();
+				return rows == 1;
+			}
+		}
+	}
+
+	public bool DeleteCustomer(int CustomerId)
+	{
+		using (SqlConnection conn = new SqlConnection(_connectionString))
+		{
+			conn.Open();
+
+			using (SqlCommand cmd = new SqlCommand(
+				"DELETE FROM dbo.Customers WHERE CustomerId = @CustomerId;", conn))
+			{
+				cmd.Parameters.AddWithValue("@CustomerId", CustomerId);
+
+				int rows = cmd.ExecuteNonQuery();
+				return rows == 1;
+			}
+		}
+	}
 }
