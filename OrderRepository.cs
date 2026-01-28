@@ -28,7 +28,7 @@ public class OrderRepository
 							OrderId = dataReader.GetInt32(0),
 							CustomerId = dataReader.GetInt32(1),
 							OrderDate = dataReader.GetDateTime(2),
-							Status = dataReader.GetString(3)
+							OrderStatus = dataReader.GetString(3)
 						});
 					}
 				}
@@ -46,7 +46,7 @@ public class OrderRepository
 		{
 			connection.Open();
 
-			using (SqlCommand command = new("SELECT OrderId, CustomerId, OrderDate, Status FROM dbo.Orders WHERE OrderId = @Id", connection))
+			using (SqlCommand command = new("SELECT OrderId, CustomerId, OrderDate, OrderStatus FROM dbo.Orders WHERE OrderId = @Id", connection))
 			{
 				command.Parameters.AddWithValue("@Id", id);
 
@@ -59,7 +59,7 @@ public class OrderRepository
 							OrderId = dataReader.GetInt32(0),
 							CustomerId = dataReader.GetInt32(1),
 							OrderDate = dataReader.GetDateTime(2),
-							Status = dataReader.GetString(3)
+							OrderStatus = dataReader.GetString(3)
 						};
 					}
 				}
@@ -76,14 +76,13 @@ public class OrderRepository
 
 			using (SqlCommand cmd = new SqlCommand(
 				@"UPDATE dbo.Orders
-				SET OrderId = @OrderId,
-					OrderDate = @OrderDate,
-					Status = @Status
+				SET OrderDate = @OrderDate,
+					OrderStatus = @OrderStatus
 				WHERE OrderId = @OrderId;", conn))
 			{
 				cmd.Parameters.AddWithValue("@OrderId", Order.OrderId);
 				cmd.Parameters.AddWithValue("@OrderDate", Order.OrderDate);
-				cmd.Parameters.AddWithValue("@Status", Order.Status);
+				cmd.Parameters.AddWithValue("@OrderStatus", Order.OrderStatus);
 
 				int rows = cmd.ExecuteNonQuery();
 				return rows == 1;
@@ -118,10 +117,10 @@ public class OrderRepository
 			{
 				SqlCommand changeStatus = new SqlCommand(
 					@"UPDATE dbo.Orders
-					SET Status = @Status
+					SET OrderStatus = @OrderStatus
 					WHERE OrderId = @OrderId;", conn, tx);
 
-				changeStatus.Parameters.AddWithValue("@Status", order.Status);
+				changeStatus.Parameters.AddWithValue("@OrderStatus", order.OrderStatus);
 				changeStatus.Parameters.AddWithValue("@OrderId", order.OrderId);
 				changeStatus.ExecuteNonQuery();
 
