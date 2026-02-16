@@ -1,0 +1,3 @@
+# Week 6
+
+The change I made to the model was adding a phone number to user with a max length of 20. The limitations were added as a part of OnModelCreating rather than as a data annotation because that is the pattern the previous programmer had started with. A migration was required because it changed the structure of the model as the phone number property didn't exist before. The schema it made was simple, it generated one file that acted as a stand in for sql code. The file contained a method explaining how to update the table to match the new column, and a method on how to roll back the change that was made.
