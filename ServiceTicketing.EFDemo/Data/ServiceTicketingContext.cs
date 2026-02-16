@@ -36,6 +36,9 @@ namespace ServiceTicketing.EFDemo.Data
 
 				entity.Property(u => u.CreatedOn)
 				.IsRequired();
+
+				entity.Property(u => u.PhoneNumber)
+				.HasMaxLength(20);
 			});
 
 			modelBuilder.Entity<Category>(entity =>
