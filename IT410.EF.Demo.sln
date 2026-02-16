@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36603.0 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceTicketing.EFDemo", "ServiceTicketing.EFDemo\ServiceTicketing.EFDemo.csproj", "{314320C6-E70D-43EE-99B8-7413FFFC097C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{314320C6-E70D-43EE-99B8-7413FFFC097C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{314320C6-E70D-43EE-99B8-7413FFFC097C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{314320C6-E70D-43EE-99B8-7413FFFC097C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{314320C6-E70D-43EE-99B8-7413FFFC097C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F72FDE34-5862-4B6F-8F73-4C8830DD90AD}
+	EndGlobalSection
+EndGlobal
