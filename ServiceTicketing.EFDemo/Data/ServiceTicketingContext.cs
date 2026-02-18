@@ -18,7 +18,9 @@ namespace ServiceTicketing.EFDemo.Data
 			// This is intentionally explicit for Week 6 so students see where the connection is set.
 			optionsBuilder.UseSqlServer(
 				"Server=localhost;Database=IT410_ServiceTicketing_EfDemo;Trusted_Connection=True;TrustServerCertificate=True"
-			);
+			)
+			.EnableSensitiveDataLogging()
+			.LogTo(Console.WriteLine);
 		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
